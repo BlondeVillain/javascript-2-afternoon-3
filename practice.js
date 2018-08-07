@@ -21,24 +21,23 @@
 */
 
 ////////// PROBLEM 1 //////////
-
 /*
   Write a function called first that takes in two parameters, an array and a callback function.
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
 
-// Code Here 
-
-// Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
 first(names, function(firstName){
   console.log('The first name in names is ' + firstName);
   return firstName;
 });
+
 // Do not edit the code above.
-
-
+function first(arr, callback)
+{
+callback(arr[0])
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -55,14 +54,20 @@ last(names, function(lastName){
   return lastName;
 });
 // Do not edit the code above.
+function last(arr, callback)
+{
+callback(arr[arr.length-1])
+}
 
 
 
 ////////// PROBLEM 3 //////////
 
 /*
-  Write a function called multiply that takes in three parameters: two numbers and a callback function.  
-  Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
+  Write a function called multiply that takes in three parameters: 
+  two numbers and a callback function.  
+  Invoke the callback, passing in the product of the
+   two numbers multiplied as the argument. 
 */
 
 //Code Here
@@ -72,13 +77,16 @@ multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
 });
 // Do not edit the code above.
-
+function multiply(num0,num1,callback){
+  callback(num1*num0);
+}
 
 
 ////////// PROBLEM 4 //////////
 
 /*
-  Write a function called contains that takes in three parameters: an array, a name and a callback.  
+  Write a function called contains that takes in
+  three parameters: an array, a name and a callback.  
   Check if the name exists in the array. 
   If it does, invoke the callback with true as the argument. 
   If the name does not exist, invoke the callback with false as the argument.
@@ -87,6 +95,8 @@ multiply(4, 3, function(answer){
 //Code Here 
 
 // Do not edit the code below.
+
+
 contains(names, 'Colt', function(result){
   if(result === true){
     console.log('Colt is in the array');
@@ -94,6 +104,20 @@ contains(names, 'Colt', function(result){
     console.log('Colt is not in the array');
   }
 });
+
+function contains(arr,name,callback)
+{for (i=0;arr.length > i; i++)
+  {
+    if (arr[i] = name)
+    {
+      callback(true)
+    }
+    else(arr[i] != name)
+    {
+      callback(false)
+    }
+  }
+}
 // Do not edit the code above.
 
 
@@ -113,13 +137,19 @@ uniq(names, function(uniqArr){
 });
 // Do not edit the code above.
 
-
+function uniq(arr,cb){
+  for(i=arr.length;i>=0;i--){
+    if(i !== arr.indexOf(arr[i])){arr.splice(i,1)}
+  }
+  cb(arr)
+ }
 
 ////////// PROBLEM 6 //////////
 
 /* 
   Write a function called each that takes in an array of names and a callback function. 
-  For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
+  For each name in the array, invoke the callback and pass in the name and the name's
+  index as arguments.
 */
 
 //Code Here 
@@ -130,17 +160,21 @@ each(names, function(item, indice){
 });
 // Do not edit the code above.
 
-
-
 ////////// PROBLEM 7 //////////
 
 /*
-  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
-  When the correct user object is found, invoke the callback with the user object as an argument.
+  Write a function called getUserById that takes in three parameters: 
+  an array of objects (users), an id and a callback,
+   and searches for the user with a matching id.
+  When the correct user object is found, invoke the
+   callback with the user object as an argument.
 */
 
 // Code here
-
+function getUserById(arr,users,id,cb)
+{
+ // cb(user)
+}
 // Do not edit the code below.
 var users = [
   {

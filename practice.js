@@ -123,57 +123,38 @@ function contains(arr,name,callback)
 
 
 ////////// PROBLEM 5 //////////
-
-/*
-  Write a function called uniq that takes in an array and a callback function.
-  Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
-*/
-
-//Code Here
-
-// Do not edit the code below.
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
-// Do not edit the code above.
 
 function uniq(arr,cb){
-  for(i=arr.length;i>=0;i--){
-    if(i !== arr.indexOf(arr[i])){arr.splice(i,1)}
+  
+  for( i = arr.length; i >= 0; i--){
+  if(i != arr.indexOf( arr[i] )){
+    arr.splice(i,1)
+  }
   }
   cb(arr)
  }
 
 ////////// PROBLEM 6 //////////
+function each(arr, cb)
+{
+  for(let i=0; i < arr.length; i++)
+    cb(arr[i], i);
+}
 
-/* 
-  Write a function called each that takes in an array of names and a callback function. 
-  For each name in the array, invoke the callback and pass in the name and the name's
-  index as arguments.
-*/
-
-//Code Here 
-
-// Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
 });
-// Do not edit the code above.
 
 ////////// PROBLEM 7 //////////
-
-/*
-  Write a function called getUserById that takes in three parameters: 
-  an array of objects (users), an id and a callback,
-   and searches for the user with a matching id.
-  When the correct user object is found, invoke the
-   callback with the user object as an argument.
-*/
-
-// Code here
-function getUserById(arr,users,id,cb)
+function getUserById(users,id,cb)
 {
- // cb(user)
+  for(i=0; users.length > i; i++){
+    if(users[i].id === id)
+      return cb(users[i]);
+  }
 }
 // Do not edit the code below.
 var users = [
